@@ -6,6 +6,10 @@ layout: true
 
 # Type System
 
-![Default-aligned image](scala/assets/scala-functions.png)
+.image-50![Default-aligned image](scala/assets/scala-type-system.png)
 
 ---
+
+# Type 2
+
+.image[![type system](scala/assets/scala-type-system.png)]

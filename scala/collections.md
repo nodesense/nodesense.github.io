@@ -1,9 +1,10 @@
 layout: true
 
-.header[Scala]
+.header[Scala Collections]
 .footer[Gopalakrishnan Subramani @NodeSense <http://nodesense.ai>]
 ---
 
-# Scala
+# Collections
 
-- [Introduction](slides.html?src=scala/slides.md)
+
+---

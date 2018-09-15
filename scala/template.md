@@ -4,6 +4,7 @@ layout: true
 .footer[Gopalakrishnan Subramani @NodeSense <http://nodesense.ai>]
 ---
 
-# Scala
+# Title
 
-- [Introduction](slides.html?src=scala/slides.md)
+
+---
