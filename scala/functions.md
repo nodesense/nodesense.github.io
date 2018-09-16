@@ -6,6 +6,14 @@ layout: true
 
 # Functions
 
+A function is a mapping from one set, called a *domain*, to another set, called the *codomain*. A function associates every element in the domain with exactly one element in the codomain. In Scala, both domain and codomain are *types*.
+
+```scala
+val square : Int => Int = x => x * x
+
+square(2) // 4
+```
+
 ---
 
 # Pure Function
@@ -31,6 +39,55 @@ or thread or local variable influence the result.
 - Referential transparency
 - Memoizable
 - Lazy
+
+---
+
+# Method
+
+- define method using def keyword
+- Return type is type inference
+
+```scala
+def add(a: Int, b: Int) = a + b
+```
+ 
+---
+
+# Multi line Methods
+
+Multi-line with type inference, the last evaluate result 
+returned automatically
+
+```scala
+def factorial(n: Int): Int = {
+      if (n == 0) 
+           1
+      else
+           n * factorial(n-1)
+}
+```
+
+With explicit return type, needs return keyword
+
+```scala
+def factorial(n: Int): Int = {
+      if (n == 0) 
+          return 1
+      else
+          return n * factorial(n-1)
+}
+```
+
+---
+
+# Factorial using Match Case
+
+```scala
+def factorial(n: Int): Int = n match {
+    case 0 => 1
+    case _ => n * factorial(n-1)
+}
+```
 
 ---
 
@@ -71,6 +128,20 @@ Call it like,
 > sum(1, 5)
 
 prints 15
+
+---
+
+# Higher-Order Functions
+
+A *higher-order* function is a function that *accepts* or *returns* a function.
+
+```scala
+trait List[A] {
+  def filter(f: A => Boolean): List[A]
+}
+```
+
+*Example*: `List[A].filter` is a higher-order function that accepts the function `A => Boolean` and returns the value `List[A]`.
 
 ---
 

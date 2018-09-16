@@ -4,6 +4,17 @@ layout: true
 .footer[Gopalakrishnan Subramani @NodeSense <http://nodesense.ai>]
 ---
 
+# Scala
+
+- High-level language for the JVM
+- Object oriented + functional programming
+- Statically typed
+- Comparable in speed to Java*
+- Type inference saves us from having to write
+- explicit types most of the time
+- Interoperates with Java
+    - Can use any Java class (inherit from, etc.)
+    - Can be called from Java code
 
 # Scala
 
@@ -11,7 +22,32 @@ layout: true
 - Runs on Java Virtual Machine
 - Java Interoperablity
 - Designed by Martin Odersky
+
 ---
+
+# Scala
+
+
+- Expressive
+- First-class functions
+- Closures
+- Concise
+- Type inference
+- Literal syntax for function creation
+- Java interoperability
+- Can reuse java libraries
+- Can reuse java tools
+- No performance penalty
+
+---
+
+# How Scala?
+
+- Compiles to java bytecode
+- Works with any standard JVM
+- Or even some non-standard JVMs like Dalvik
+- Scala compiler written by author of Java compiler
+
 
 # Use Cases
 
@@ -20,6 +56,7 @@ layout: true
 - Concurrent Programming
 - Tasks
 - Big Data Streaming
+
 ---
 
 # Popular Frameworks
@@ -27,7 +64,35 @@ layout: true
 - Apache Spark
 - Apache Kafka
 - Akka Framework
+- Kafka Framework
 - Play Framework
+---
+
+# Example Code
+
+Declaring variables:
+
+```scala
+var x: Int = 7
+var x = 7 // type inferred
+val y = “hi” // read-only
+```
+
+Functions
+
+```scala
+def square(x: Int): Int = x*x
+
+def square(x: Int): Int = {
+            x*x
+}
+
+def announce(text: String) =
+{
+ println(text)
+}
+```
+
 ---
 
 # Compile
