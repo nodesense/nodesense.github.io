@@ -1,0 +1,94 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Code Share</title>
+
+    <!-- Firebase -->
+ <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script> 
+
+<!-- <script src="https://www.gstatic.com/firebasejs/4.1.4/firebase.js"></script> -->
+
+
+<!-- CodeMirror -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/mode/javascript/javascript.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.17.0/codemirror.css" />
+
+<!-- Firepad -->
+<link rel="stylesheet" href="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.css" />
+<script src="https://cdn.firebase.com/libs/firepad/1.4.0/firepad.min.js"></script>
+
+<!--
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/htmlmixed/htmlmixed.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/jsx/jsx.js">
+</script>
+-->
+
+<style>
+    .firepad {
+  width: 800px;
+  height: 600px;
+  border: 1px solid grey;
+}
+
+
+</style>
+</head>
+     
+<body onload="init()">
+  <h2>http://code.nodesense.ai</h2>
+  <p>Ctrl/CMD + A => Ctrl/CMD + C</p>
+  <div id="firepad"></div>
+  <script>
+    function init() {
+      // Initialize Firebase.
+      // TODO: replace with your Firebase project configuration.
+    //   var config = {
+    //     apiKey: "<API_KEY>",
+    //     authDomain: "<AUTH_DOMAIN>.firebaseapp.com",
+    //     databaseURL: "https://<DATABASE_NAME>.firebaseio.com"
+    //   };
+
+
+ 
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBztIwObuqAWK4Cg6QI24Ib3pP2IDNAas0",
+    authDomain: "javascript-859bc.firebaseapp.com",
+    databaseURL: "https://javascript-859bc.firebaseio.com",
+    projectId: "javascript-859bc",
+    storageBucket: "javascript-859bc.appspot.com",
+    messagingSenderId: "685777656835"
+  };
+  firebase.initializeApp(config);
+ 
+      // Get Firebase Database reference.
+      var firepadRef = firebase.database().ref();
+
+      // Create CodeMirror (with lineWrapping on).
+      var codeMirror = CodeMirror(document.getElementById('firepad'),
+         { lineWrapping: true,
+             lineNumbers: true,
+             mode: 'javascript',
+		readOnly: true
+        });
+
+      // Create Firepad (with rich text toolbar and shortcuts enabled).
+      var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror, {
+        richTextShortcuts: false,
+        richTextToolbar: false,
+        defaultText: 'Hello, World!'
+      });
+    }
+  </script>
+
+</body>
+</html>
+
