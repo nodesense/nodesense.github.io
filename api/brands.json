@@ -1,5 +1,4 @@
-{
-   "brands": [
+[
         {
           "id": 7,
           "name": "Motorola"
@@ -40,5 +39,4 @@
           "id": 11,
           "name": "OnePlus"
         }
-      ]
-}
+]
