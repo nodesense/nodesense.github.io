@@ -114,6 +114,22 @@ print 60
 
 ---
 
+# Function0 to Function 20
+
+```scala
+val fun0 = new Function0[String] {
+    def apply(): String = sys.props("java.version")
+}
+
+val power =  new Function1[Int, Int] {
+    def apply(n: Int) = n * n;
+}
+
+val add =  new Function2[Int, Int, Int] {
+    def apply(a: Int, b: Int) = a + b;
+}
+```
+
 # Function
 
 ### Below function sums number between range a and b recursively

@@ -1,27 +1,28 @@
 layout: true
 
 .header[Scala Basics, Expressions]
-.footer[Gopalakrishnan Subramani @NodeSense <http://nodesense.ai>]
+.footer[Scala]
 ---
 
 # Scala
 
+- Scalable Language
 - High-level language for the JVM
 - Object oriented + functional programming
 - Statically typed
-- Comparable in speed to Java*
-- Type inference saves us from having to write
-- explicit types most of the time
-- Interoperates with Java
-    - Can use any Java class (inherit from, etc.)
-    - Can be called from Java code
+- Designed by Martin Odersky
+
+---
 
 # Scala
 
-- Objected Oriented and Functional Language
 - Runs on Java Virtual Machine
-- Java Interoperablity
-- Designed by Martin Odersky
+
+- Comparable in speed to Java*
+- Type inference, Smart Compiler, knows types from expressions
+- Interoperates with Java
+    - Can use any Java class (inherit from, etc.)
+    - Can be called from Java code
 
 ---
 
@@ -30,9 +31,9 @@ layout: true
 
 - Expressive
 - First-class functions
-- Closures
-- Concise
-- Type inference
+- Closures - Encapsulation in Functional world
+- Concise - Smaller code
+- Type inference 
 - Literal syntax for function creation
 - Java interoperability
 - Can reuse java libraries
@@ -41,13 +42,14 @@ layout: true
 
 ---
 
-# How Scala?
+# Scala
 
 - Compiles to java bytecode
 - Works with any standard JVM
 - Or even some non-standard JVMs like Dalvik
 - Scala compiler written by author of Java compiler
 
+---
 
 # Use Cases
 
@@ -59,13 +61,14 @@ layout: true
 
 ---
 
-# Popular Frameworks
+# Popular Frameworks build on Scala
 
 - Apache Spark
 - Apache Kafka
 - Akka Framework
 - Kafka Framework
 - Play Framework
+
 ---
 
 # Example Code
@@ -102,7 +105,7 @@ def announce(text: String) =
 - JVM compatible
 ---
 
-# Scala Interpretter
+# Scala REPL
 
 - Download Scala lang
 - Set path to scala/bin to PATH
@@ -119,6 +122,7 @@ scala > println("hello")
 - Type Inference [Drive data type automatically*]
 - Smart Compiler
 - Can use all Java libraries
+
 ---
 
 # Scala Cons
@@ -127,13 +131,29 @@ scala > println("hello")
 - Overloaded signs, symbols
 - Slightly painful to use inside Java
 - Compiler bugs
-- No binary compatiblities
+- No binary compatibilities
+
 ---
 
-# Strongly Typed
+# Type checking
 
 - Strongly Typed Language
 - Compile Time and Runtime type checking
+
+---
+
+# Scala 2.12 Features 
+
+- Uses Java 8 
+- Scala Trait compiled to Java Interface ()
+- Functions can be called from both direction easily
+- Java Lambda and FunctionN are now Single Abstract Method
+
+# Scala 2.13 Features
+
+- Compiler Performance (10 to 20 % more)
+- Deprecating procedural functions syntax (towards Scala 3.0)
+- Collection Simplification (towards Scala 3.0)
 
 ---
 
@@ -179,6 +199,7 @@ val a = if (i % 2 == 0) "even" else "odd"
 - Char (16 bits), Unicode
 - String
 - Data Types are class types
+
 ---
 
 # Variables
@@ -204,6 +225,68 @@ PI = 2.14;
 val PI: Double = 3.14;
 //ERROR
 PI = 2.14;
+```
+
+---
+
+# Expressions
+
+Most of the statements in Java are expressions in Scala
+Expressions returns output. Statement doesn't.
+
+- if is an expression
+- for..yield is an expression
+- match..case is an expression
+
+---
+
+# If Expression
+
+```scala
+// below statement returns 10
+
+if (true) 10
+
+//below statement returns 20
+
+if (false) 10 else 20
+
+// assign to result
+val result = if (false) 10 else 20
+println(result);
+```
+
+---
+
+# If Expression
+
+- else if
+
+```scala
+if (a > b)
+       if (c)
+          100
+       else
+          50
+     else 10
+```
+
+# if with block statement
+
+- multi line statements
+
+```scala
+if (a > b) {
+      if (c) {
+        100
+      }
+      else {
+        50
+      }
+    }
+    else {
+      10
+    }
 ```
 
 ---
@@ -323,61 +406,6 @@ for (i <- 1 to 10) {
 
 ---
 
-# Option
-
-- Represent a Value/Object or None
-- Value/Object represented using an instance of Some
-- null or non-existence values represented as None 
-
-- Useful for handling null scenarios
-- Avoid catching expressions by caller
-
----
-
-# Option Example 1
-
-```scala
-def toInt(input: String): Option[Int] = {
-    try {
-      Some(input.toInt)
-    } catch {
-      case _: Throwable =>
-        None
-    }
-  }
-```
-
-```scala
-  toInt("100") match {
-    case Some(i) => println(i)
-    case None => println("Error!!")
-  }
-```
-
----
-
-# Option Example 2
-```scala
-def toInt(input: String): Option[Int] = {
-    try {
-      Some(input.toInt)
-    } catch {
-      case _: Throwable =>
-        None
-    }
-  }
-```
-
-```scala
-var result: Option[Int] = toInt("100");
-var result2: Option[Int] = toInt("test")
-println("is empty", result.isEmpty);
-println("get value ", result.get);
-println("result2", result2.isEmpty);
-println("getOrElse ", result.getOrElse(0));
-```
-
----
 
 # Exceptions
 
@@ -496,9 +524,10 @@ def vote(age:Int) = {
 # Custom Exception with Case Class
 
 ```scala
-case class CustomException(private val message: String = "", 
-                           private val cause: Throwable = None.orNull) extends 
-                                                                Exception(message, cause)
+case class CustomException(
+        private val message: String = "", 
+        private val cause: Throwable = None.orNull) extends 
+                                    Exception(message, cause)
 ```
 
 ```scala
@@ -635,3 +664,28 @@ def generateRandom : Int = {
     return n;
 }
 ```
+
+---
+
+# Compile Scala Code
+
+    scalac <filename.scala>
+
+now we have filename.class produced
+
+To de-compile generated byte code to Java
+
+    javap filename 
+
+or 
+    javap filename.class
+
+---
+
+# Parse Scala source code
+
+To know, how Scala transpile Scala
+
+    scalac -Xprint:parse Main.scala
+
+    scalac -Xprint:all Main.scala
